@@ -19,11 +19,28 @@ Route::get('/', function () {
 })->name('Home');
 
 Route::get('/admin', [AuthController::class, 'loadRegister'])->name('admin');
-Route::post('/admin', [AuthController::class, 'studentRegister'])->name('studentRegister');
+Route::post('/admin', [AuthController::class, 'studentRegister'])->name('admin');
+
+Route::get('/login', function () {
+    return redirect('/');
+});
+
+Route::get('/login', [AuthController::class, 'loadLogin'])->name('login');
+Route::post('/login', [AuthController::class, 'loginPost'])->name('login');
+
+Route::get('/logout', [AuthController::class, 'logout']);
+
+Route::group(['middleware' => ['web', 'checkAdmin']], function () {
+    Route::get('/admin/dashboard', [AuthController::class, 'adminDashboard']);
+});
+
+Route::group(['middleware' => ['web', 'checkStudent']], function () {
+    Route::get('/dashboard', [AuthController::class, 'loadDashboard']);
+});
 
 //     return view('admin');
 // })->name('Admin');
 
-Route::get('/student', function () {
-    return view('student');
-})->name('Student');
+// Route::get('/student', function () {
+//     return view('login');
+// })->name('login');

@@ -1,6 +1,12 @@
+.active-link{
+    color: black;
+}
+
+.selected-link{
+    color: black;
+}
+
 body{
-    background-image: url('/project/public/image.jpg');
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }

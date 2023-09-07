@@ -31,9 +31,11 @@
                                 <button type="submit" class="btn btn-light rounded-pill">Login</button>
                             </div>
                         </form>
+                        <a href="/forget-password" class="btn btn-light rounded-pill">Forget Password</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
 @endsection

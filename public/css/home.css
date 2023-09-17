@@ -1,25 +1,23 @@
 
 
 .active-link{
-    color: black;
+    color: white;
 }
 
 .selected-link{
-    color: black;
+    color: white;
 }
 
-body{
+.body{
     overflow-x: hidden;
     overflow-y: hidden;
-    /* background: url('/project/public/exam.jpg');
-    max-width: 100%;
-    height: auto; */
 }
 
 .main{
     width: 100%;
     min-height: 100vh;
-    background-position:center;
+    height: 100%;
+    background-position:center !important;
     background-repeat: no-repeat !important;
     background-size: cover !important;
 }

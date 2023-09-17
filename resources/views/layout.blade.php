@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary " style="--bs-bg-opacity:.75">
+    <nav class="navbar navbar-expand-lg navbar navbar-light fixed-top" style="background-color:brown ">
         <div class="container-fluid">
             <div class="d-flex align-items-center"> <!-- Added this container -->
                 <a class="navbar-brand" href="#">
@@ -50,8 +50,8 @@
         </div>
     </nav>
     <main class="main" style="background: url({{ asset('exam.jpg') }})">
-    @yield('content')
-    </div>
+        @yield('content')
+        </div>
 
         <script src="{{ asset('bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 </body>

@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AdminController;
+use Illuminate\Http\JsonResponse;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,9 @@ Route::post('/forget-password', [AuthController::class, 'forgetPassword'])->name
 
 Route::group(['middleware' => ['web', 'checkAdmin']], function () {
     Route::get('/admin/dashboard', [AuthController::class, 'adminDashboard']);
+
+    Route::get('/admin/dashboard', [AdminController::class, 'examDashboard']);
+    Route::post('/add-exam', [AdminController::class, 'addExam'])->name('addExam');
 });
 
 Route::group(['middleware' => ['web', 'checkStudent']], function () {

@@ -10,6 +10,7 @@
 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+    {{-- @vite(['resources/js/jquery.js']) --}}
 </head>
 
 <body>
@@ -27,6 +28,13 @@
                 <li class="active">
                     <a href="/admin/dashboard"><span class="fa fa-tasks mr-3"></span> Exams</a>
                 </li>
+                <li class="active">
+                    <a href="/admin/qna-ans"><span class="fa fa-question-circle mr-3"></span> Q&A</a>
+                </li>
+                <li class="active">
+                    <a href="/admin/students"><span class="fa fa-graduation-cap mr-3"></span> Students</a>
+                </li>
+                
                 <li>
                     <a href="/logout"><span class="fa fa-sign-out mr-3"></span> Logout</a>
                 </li>
@@ -40,11 +48,12 @@
             @yield('space-work')
         </div>
     </div>
-
     <script src="{{ asset('js/jquery.min.js') }}"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> --}}
     <script src="{{ asset('js/popper.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    @stack('scripts')
 </body>
 
 </html>

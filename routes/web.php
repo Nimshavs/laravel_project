@@ -40,15 +40,14 @@ Route::group(['middleware' => ['web', 'checkAdmin']], function () {
 
     Route::get('/admin/dashboard', [AdminController::class, 'examDashboard']);
     Route::post('/add-exam', [AdminController::class, 'addExam'])->name('addExam');
+
+    // Q&A route
+    Route::get('/admin/qna-ans', [AdminController::class, 'qnaDashboard']);
+
+    //students routing
+    Route::get('/admin/students', [AdminController::class, 'studentsDashboard']);
 });
 
 Route::group(['middleware' => ['web', 'checkStudent']], function () {
     Route::get('/dashboard', [AuthController::class, 'loadDashboard']);
 });
-
-//     return view('admin');
-// })->name('Admin');
-
-// Route::get('/student', function () {
-//     return view('login');
-// })->name('login');

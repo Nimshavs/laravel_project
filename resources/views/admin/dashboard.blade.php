@@ -56,11 +56,14 @@
             </div>
         </div>
     </div>
+@endsection
+
+@push('scripts')
     <script>
         $(document).ready(function() {
             $("#addExam").submit(function(e) {
                 e.preventDefault();
-
+                console.log("Submitted");
                 var formData = $(this).serialize();
 
                 $.ajax({
@@ -77,5 +80,5 @@
                 });
             });
         });
-    </script>
-@endsection
+    </script>l̥
+@endpush

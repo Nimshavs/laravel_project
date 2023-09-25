@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Exam;
 use Illuminate\Support\Facades\Hash;
 
 use Illuminate\Support\Facades\Auth;
@@ -76,7 +77,8 @@ class AuthController extends Controller
 
     public function loadDashboard()
     {
-        return view('student.dashboard');
+        $exams = Exam::all();
+        return view('student.dashboard', ['exams' => $exams]);
     }
 
     public function adminDashboard()
@@ -93,35 +95,32 @@ class AuthController extends Controller
 
     public function forgetpasswordload()
     {
-       return view('forget'); 
+        return view('forget');
     }
 
     public function forgetPassword(Request $request)
     {
-        try{
+        try {
 
-            $user = User::where('email',$request->email)->get();
+            $user = User::where('email', $request->email)->get();
 
-            if(count($user) > 0){
+            if (count($user) > 0) {
 
                 $token = Str::random(40);
                 $domain = URL::to('/');
-                $url = $domain.'/reset-password?token'.$token;
+                $url = $domain . '/reset-password?token' . $token;
 
-                $data['url']= $url;
-                $data['email']=$request->email;
-                $data['title']='Password Reset';
-                $data['body']='Click the below link to reset the password';
+                $data['url'] = $url;
+                $data['email'] = $request->email;
+                $data['title'] = 'Password Reset';
+                $data['body'] = 'Click the below link to reset the password';
 
-                Mail::send('forgetPasswordMail',['data'=>$data]);
-
+                Mail::send('forgetPasswordMail', ['data' => $data]);
+            } else {
+                return back()->with('error', 'Email not exist');
             }
-            else{
-                return back()->with('error','Email not exist');
-            }
-
-        }catch(\Exception $e){
-            return back()->with('error',$e->getMessage());
+        } catch (\Exception $e) {
+            return back()->with('error', $e->getMessage());
         }
     }
 }

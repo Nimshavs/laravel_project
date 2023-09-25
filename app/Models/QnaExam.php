@@ -5,15 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Question extends Model
+class QnaExam extends Model
 {
     use HasFactory;
+    public $table = "qna_exams";
     protected $fillable = [
-        'question'
+        'exam_id',
+        'question_id'
     ];
-
-    public function answers(){
-        return $this->hasMany(Answer::class,'questions_id','id');
-    }
-
 }

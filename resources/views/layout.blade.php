@@ -9,6 +9,12 @@
     <link rel="stylesheet" href="{{ asset('bootstrap/css/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/home.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <script src="{{ asset('js/multiselect-dropdown.js') }}"></script>
+    <style>
+        .multiselect-dropdown {
+            width: 100% !important;
+        }
+    </style>
     {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha384-KyZXEAg3QhqLMpG8r+J36Ck3xj3pG8SbCQE5n3g5giF2bK6Pm7uCeC5koD2P5O5l5" crossorigin="anonymous">
     </script> --}}
